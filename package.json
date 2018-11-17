@@ -1,0 +1,26 @@
+{
+  "name": "asynchronousserver",
+  "version": "1.0.0",
+  "description": "Ceci est le premier tp du cours 'Asynchronous Server Technology'. C'est une petite app en nodeJS.\r ## Instructions d'installations\r Installez nodeJS : https://nodejs.org/en/download/\r ## Instruction d'usage\r Lancez un invité de commande bash, et lancez l'app : <br/>\r `node index.js` et lancer votre explorateur et aller sur l'URL http://localhost:8080/ <br/>\r L'app possède 3 routes : <br/>\r `/` : L'app explique comment utiliser la commande /hello? . <br/>\r `/hello?` Ecrire dans l'url `/hello?name=YourName` , l'app vou dira bonjour. Petit bonus si vous trouvez mon nom, vous aurez une petite introduction sur moi-même. <br/>\r Toute autre url répondent par une erreur 404. <br/>\r ## Contributeur\r Benoit Chaurand",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChaurandBenoit/AsynchronousServer.git"
+  },
+  "author": "Benoit Chaurand",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ChaurandBenoit/AsynchronousServer/issues"
+  },
+  "homepage": "https://github.com/ChaurandBenoit/AsynchronousServer#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "nodemon": "^1.18.6"
+  }
+}

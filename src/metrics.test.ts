@@ -1,14 +1,13 @@
 /*import { expect } from 'chai'
+var assert = require('assert');
+describe('Array', function() {
+  describe('#indexOf()', function() {
+    it('should return -1 when the value is not present', function() {
+      assert.equal([1,2,3].indexOf(4), -1);
+    });
+  });
+});*/
 
-const a: number = 0
-
-describe('Metrics', function(){
-	describe('#get' function() {
-		it('should equal 0', function(){
-			a.should.equal(0)
-		})
-	})
-})*/
 /*import { expect } from 'chai'
 import { Metric, MetricsHandler } from './metrics'
 import { LevelDB } from "./leveldb"

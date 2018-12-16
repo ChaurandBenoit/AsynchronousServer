@@ -8,16 +8,16 @@ describe('Array', function() {
   });
 });*/
 
-/*import { expect } from 'chai'
+import { expect } from 'chai'
 import { Metric, MetricsHandler } from './metrics'
-import { LevelDB } from "./leveldb"
+import { LevelDb } from "./leveldb"
 
-const dbPath: string = 'db_test'
+const dbPath: string = 'db_test/metrics'
 var dbMet: MetricsHandler
 
 describe('Metrics', function () {
   before(function () {
-    LevelDB.clear(dbPath)
+    LevelDb.clear(dbPath)
     dbMet = new MetricsHandler(dbPath)
   })
 
@@ -37,7 +37,6 @@ describe('Metrics', function () {
 	})
 
 	describe('#save', function(){
-		const mectrics: Metric[]=[new Metric()]
 		it('should save data', function(){
 
 		})
@@ -55,4 +54,4 @@ describe('Metrics', function () {
 
 		})
 	})
-})*/
+})

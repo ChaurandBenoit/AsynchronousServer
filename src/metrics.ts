@@ -17,7 +17,7 @@ export class MetricsHandler {
     constructor(dbPath: string) {
       this.db = LevelDb.open(dbPath)
     }
-   public save(key: number, metrics: Metric[], callback: (error: Error | null) => void) {
+   public save(key: string, metrics: Metric[], callback: (error: Error | null) => void) {
     // TypeError: level_ws_1.default is not a function
     metrics.forEach((m: Metric) => {
       this.db.put({ key: `metric:${key}${m.timestamp}`, value: m.value })
@@ -45,7 +45,8 @@ export class MetricsHandler {
      /*EncodingError: Unexpected end of JSON input
     at D:\Benoit\ECE\UX_UI\serveurAsy\AsynchronousServer\node_modules\encoding-down\index.js:124:17
     at D:\Benoit\ECE\UX_UI\serveurAsy\AsynchronousServer\node_modules\abstract-leveldown\abstract-iterator.js:29:14
-    at D:\Benoit\ECE\UX_UI\serveurAsy\AsynchronousServer\node_modules\leveldown\iterator.js:45:7*/
+    at D:\Benoit\ECE\UX_UI\serveurAsy\AsynchronousServer\node_modules\leveldown\iterator.js:45:7
+    Erreur continue malgrés la réinstallation de level-down et encoding-down*/
   }
 
   public remove(key: any, callback: (error: Error | null) => void) {

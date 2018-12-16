@@ -1,6 +1,8 @@
 import express = require('express')
 import { MetricsHandler } from './metrics'
 import bodyparser= require('body-parser')
+import morgan = require('morgan')
+
 
 const app = express()
 const dbMet : MetricsHandler = new MetricsHandler('./db/metrics')
@@ -9,6 +11,7 @@ const port: string = process.env.PORT || '8080'
 
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded())
+app.use(morgan('dev'))
 
 app.get('/', (req: any, res: any) => {
     res.setHeader('Content-Type', 'text/plain')

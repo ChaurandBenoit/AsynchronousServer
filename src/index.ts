@@ -60,19 +60,21 @@ authRouter.post('/login', (req: any, res: any, next: any) => {
     if (err) next(err)
     if (result === undefined || !result.validatePassword(req.body.username)) {
       res.render('login', {message : "Wrong username or paswword !"})
+      console.log("Wrong username or password !")
     } else {
       req.session.loggedIn = true
       req.session.user = result
       res.redirect('/')
+      console.log("Your are logged in")
     }
   })
 })
 
 authRouter.post('/signup', (req: any, res: any, next: any) => {
-  console.log('test')
   dbUser.save(req.body, (err: Error | null) =>{
     if (err) throw err
-    res.render('signup', {message : "User created"})
+    console.log('User saved')
+    res.redirect('/login')
   })
 })
 
@@ -113,7 +115,7 @@ app.get('/', authCheck, (req: any, res: any) => {
 
 const mectricsRouter = express.Router()
 
-/*app.get('/metrics/:id', (req: any, res: any) => {
+app.get('/metrics/:id', (req: any, res: any) => {
      dbMet.get(req.params.id, (err: Error | null, result?: any) =>{
        if(err) throw err
        if(result===undefined) {
@@ -134,33 +136,6 @@ app.post('/metrics/:id', (req: any, res: any, next:any) => {
    })
 
 app.delete('/metrics/:id', (req: any, res: any, next: any) => {
-  dbMet.remove(req.params.id, (err: Error | null) => {
-    if (err) next(err)
-    res.status(200).send()
-  })
-})*/
-
-mectricsRouter.get('/:id', (req: any, res: any) => {
-     dbMet.get(req.params.id, (err: Error | null, result?: any) =>{
-       if(err) throw err
-       if(result===undefined) {
-         res.write('no result')
-         res.send
-       }
-       else res.json(result)
-       })
-   })
-
-mectricsRouter.post('/metrics/:id', (req: any, res: any, next:any) => {
-     dbMet.save(req.params.id, req.body, (err: Error | null, result?:any) =>{
-       if(err){
-         res.status(500).send(err.message)
-       }
-       res.status(200).send()
-       })
-   })
-
-mectricsRouter.delete('/:id', (req: any, res: any, next: any) => {
   dbMet.remove(req.params.id, (err: Error | null) => {
     if (err) next(err)
     res.status(200).send()
